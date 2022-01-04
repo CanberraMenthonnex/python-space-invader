@@ -29,6 +29,7 @@ while lp < 8:
     aliens1.append(alien)
     lp += 1
 i = 0
+
 while game:
 
     if loop == False:
@@ -48,11 +49,11 @@ while game:
                 t.Shoot(ecran)
 
                 if t.Y > 580:
-                    loop = False
+                    game = False
 
                 for laser in t.shoots:
                     if((((laser.X - spaceship.X)**2) + ((laser.Y - spaceship.Y)**2) )**0.5) < 30:
-                        loop = False
+                        game = False
 
                 #collision
                 for laser in spaceship.shoots:
@@ -62,7 +63,7 @@ while game:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_j:
-                    loop = False
+                    game = False
                 if event.key == pygame.K_q:
                     spaceship.move = "left"
                 if event.key == pygame.K_d:
@@ -71,7 +72,7 @@ while game:
                     spaceship.Shoot(ecran)
 
             if event.type == pygame.QUIT:
-                loop = False
+                game = False
         
 
         spaceship.Move(ecran)
