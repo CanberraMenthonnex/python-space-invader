@@ -9,9 +9,11 @@ class Spaceship():
         self.vel = 2 
         self.move = "null"
         self.shoots = []
+        self.spaceshipImg = pygame.image.load("space.png")
 
     def Spawn(self, ecran):
-        pygame.draw.circle(ecran, (0,0,255), (self.X,self.Y), self.size)
+        # pygame.draw.circle(ecran, (0,0,255), (self.X,self.Y), self.size)
+        ecran.blit(self.spaceshipImg, (self.X, self.Y))
 
     def Move(self, ecran):
         if self.move == "left":

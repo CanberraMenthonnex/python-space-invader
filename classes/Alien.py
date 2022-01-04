@@ -12,17 +12,24 @@ class Alien:
         self.pos = 0
         self.aliens = []
         self.shoots = []
+        self.spaceshipImg = pygame.image.load("ufo.png")
         
     def Spawn(self, ecran):
-        pygame.draw.circle(ecran, (255,0,0), (self.X,self.Y), self.size)
+        ecran.blit(self.spaceshipImg, (self.X, self.Y))
         self.Y += self.vel
         self.pos += 1
 
         for items in self.shoots:
             items.SpawnMoveDown(ecran)
 
+    def MoveLeft(self):
+        self.X -= self.vel * 3
+
+    def MoveRight(self):
+        self.X += self.vel * 3
+
     def Shoot(self, ecran):
-        roll = randrange(100)
+        roll = randrange(150)
         if roll == 1:
             laser = Laser(self.X, self.Y)
             self.shoots.append(laser)

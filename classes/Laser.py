@@ -10,11 +10,11 @@ class Laser:
 
     def SpawnMoveUp(self, ecran):
         self.Y-= self.vel
-        pygame.draw.circle(ecran, (0,123,0), (self.X,self.Y), self.size)
+        pygame.draw.circle(ecran, (255,0,0), (self.X,self.Y), self.size)
     
     def SpawnMoveDown(self, ecran):
         self.Y+= self.vel
-        pygame.draw.circle(ecran, (0,123,0), (self.X,self.Y), self.size)
+        pygame.draw.circle(ecran, (255,0,0), (self.X,self.Y), self.size)
     
 
 
